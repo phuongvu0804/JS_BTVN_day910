@@ -187,7 +187,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 
-					<form role="form">
+					<form id="login-form" role="form">
 
 						<div class="form-group">
 							<div class="input-group">
@@ -262,7 +262,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fa fa-briefcase"></i></span>
 								</div>
-								<select class="form-control" id="chucvu">
+								<select class="form-control" name="chucvu" id="chucvu">
 									<option>Chọn chức vụ</option>
 									<option>Sếp</option>
 									<option>Trưởng phòng</option>
@@ -324,6 +324,10 @@
 			});
 		});
 	</script>
+	<script src="./models/nhanvien.models"></script>
+	<script src="./models/dsnv.js"></script>
+	<script src="./models/validation.js"></script>
+	<script src="./main.js"></script>
 </body>
 
 </html>
