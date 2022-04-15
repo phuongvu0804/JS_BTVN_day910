@@ -28,7 +28,6 @@ function Validation () {
     this.minMaxAmount = function (value, selector, message, min, max) {
         var errorBlock = document.querySelector(selector);
         value *= 1
-        console.log(value)
         if (value >= min && value <= max) {
             errorBlock.innerText = ''
             return true;
@@ -127,4 +126,27 @@ function Validation () {
         return false;
 
     } 
+
+    this.isExisted = function (value, selector, message, array) {
+        var errorBlock = document.querySelector(selector);
+        var status = false;
+
+        for (var i = 0; i < array.length; i++) {
+            var nhanVien = array[i]
+            if (nhanVien.taiKhoan == value) {
+                status = true
+                break
+            } 
+            
+        }
+
+        if (status) {
+            errorBlock.style.display = "block"
+            errorBlock.innerText = message;
+            return false;
+        } else {
+            errorBlock.innerText = ''
+            return true;
+        }
+    }
 }

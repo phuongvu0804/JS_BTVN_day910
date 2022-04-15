@@ -4,9 +4,30 @@ function Dsnv () {
         this.array.push(nhanVien);
     },
 
-    this.suaNV = function () {
+    this.timViTriNv = function (taiKhoan) {
+        var index = -1
+        for (var i = 0; i < this.array.length; i++) {
+            var nhanVien = this.array[i]
+            if (nhanVien.taiKhoan === taiKhoan) {
+                index = i;
+                break;
+            }
+
+        }
+        return index;
 
     },
+
+    this.hienThiThongTinSua = function (taiKhoan) {
+        var index = this.timViTriNv(taiKhoan)
+        if (index !== -1) {
+            var nhanVien = this.array[index]
+            return nhanVien
+        }
+
+        return null;
+    },
+
     this.xoaNV = function (taiKhoanXoa) {
         var isDeleted = false;
         var deletedIndex;
@@ -23,8 +44,11 @@ function Dsnv () {
         }
     },
 
-    this.capNhapNV = function () {
-
+    this.capNhapNV = function (nhanVien) {
+        var index = this.timViTriNv(nhanVien.taiKhoan)
+        if (index !== -1) {
+            this.array[index] = nhanVien
+        }
     },
     
     this.timLoaiNV = function (keyword) {
@@ -39,6 +63,6 @@ function Dsnv () {
         return danhSach;
 
     }
-    console.log(this.array);
+
 
 }
